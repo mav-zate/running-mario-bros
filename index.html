@@ -15,6 +15,10 @@ explosion sound
 http://soundbible.com/538-Blast.html
 super mario theme song
 https://www.youtube.com/watch?v=iy3qq7zc4EY
+mario jump sound
+http://themushroomkingdom.net/media/smb/wav
+donkey kong arcade theme
+https://www.youtube.com/watch?v=Pp2aMs38ERY
  -->
 
 
@@ -47,10 +51,12 @@ Day 4:
 
 1. Add mario death animation - DONE
 2. Freeze game upon death - DONE
-3. Add death screen 
 4. Add start menu
 5. Add high score
+3. Add death screen
 
+
+add donkey kong arcade theme later
 -->
 <html>
   <head>
@@ -59,7 +65,18 @@ Day 4:
     <title>Running Mario Bros</title>
   </head>
   <body>
-    <canvas id="game-screen" width=800 height=500 style="z-index: 1;"></canvas>
-    <canvas id="mario" width=800 height=500 style="z-index: 2;"></canvas>
+    <header> </header>
+    <canvas id="end-screen" width=800 height=500 style="z-index: 1;"></canvas>
+    <canvas id="game-screen" width=800 height=500 style="z-index: 3;"></canvas>
+    <canvas id="mario" width=800 height=500 style="z-index: 4;"></canvas>
+    <div id="start-screen">
+      <h1>RUNNING MARIO BROS.</h1>
+      <section class="button-section">
+        <button id="play-button">PLAY</button>
+        <button>INSTRUCTIONS</BUTTON>
+        <button id="music-button">MUSIC</button>
+        <button>CREDITS</button>
+      <section>
+    </div>
   </body>
 </html>

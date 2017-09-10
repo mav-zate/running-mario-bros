@@ -1,10 +1,71 @@
+@font-face {
+  font-family: "mario";
+  src: url('../font/mario_font.ttf') format('truetype');
+}
+
+/* RESET */
+
+h1, h2, h3, p {
+  margin: 0;
+  padding: 0;
+}
+
 canvas {
   position: absolute;
   top: 0px;
   left: 0px;
+  font-size: 20px;
+}
+
+* {
+  font-family: 'mario';
 }
 
 #game-screen {
   border: solid 1px black;
   background: #6386fb;
+}
+
+#end-screen {
+  /*background: black;*/
+  border: solid 1px black;
+}
+
+#start-screen {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 800px;
+  height: 500px;
+  background-image: url("https://s3.amazonaws.com/running-mario-bros-dev/menus/start_menu.jpg");
+  background-size: contain;
+  border: solid 1px black;
+  z-index: 5;
+}
+
+h1 {
+  position: relative;
+  top: 83px;
+  left: 167px;
+  width: 300px;
+  color: white;
+  font-size: 3em;
+}
+
+button {
+  z-index: 5;
+  margin: 10px 0;
+}
+
+.button-section {
+  position: relative;
+  top: 125px;
+  left: 253px;
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+}
+
+#music-button {
+  position: relative;
 }
