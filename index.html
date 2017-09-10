@@ -39,11 +39,17 @@ Day 3:
 3. Remove goombas from goomba generator - DONE
 4. Add bounce off goomba - DONE
 5. Add goomba kill - DONE
-6. Add super mario bros theme song
-7. Add mario death
+6. Add super mario bros theme song - DONE
+7. Add mario death - DONE
 8. Add coins
 
 Day 4:
+
+1. Add mario death animation
+2. Add death screen
+3. Add start menu
+4. Add high score
+
 -->
 <html>
   <head>
@@ -52,6 +58,7 @@ Day 4:
     <title>Running Mario Bros</title>
   </head>
   <body>
-    <canvas id="game-screen" width=800 height=500></canvas>
+    <canvas id="game-screen" width=800 height=500 style="z-index: 1;"></canvas>
+    <canvas id="mario" width=800 height=500 style="z-index: 2;"></canvas>
   </body>
 </html>

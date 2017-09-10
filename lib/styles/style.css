@@ -1,4 +1,10 @@
 canvas {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+#game-screen {
   border: solid 1px black;
   background: #6386fb;
 }
