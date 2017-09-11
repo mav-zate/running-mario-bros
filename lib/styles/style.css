@@ -10,11 +10,63 @@ h1, h2, h3, p {
   padding: 0;
 }
 
+body {
+  width: 100%;
+  margin: 0;
+}
+
+/* HEADER */
+
+header {
+  border-bottom: 1px solid black;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: #d64e00;
+  color: white;
+}
+
+#header-left {
+  margin: 0 0 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#header-left > img {
+  margin: 0 10px 0 0;
+}
+
+#header-center {
+ font-size: 25px;
+}
+
+#header-right {
+  margin: 0 20px 0 0;
+}
+
 canvas {
   position: absolute;
-  top: 0px;
-  left: 0px;
+  top: 100px;
+  left: 0;
   font-size: 20px;
+  margin: 0 20% 0 18.5%;
+}
+
+#start-screen {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  margin: 0 20% 0 18.5%;
+  width: 800px;
+  height: 500px;
+  background-image: url("https://s3.amazonaws.com/running-mario-bros-dev/menus/start_menu.jpg");
+  background-size: contain;
+  border: solid 1px black;
+  z-index: 5;
 }
 
 * {
@@ -31,17 +83,6 @@ canvas {
   border: solid 1px black;
 }
 
-#start-screen {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 800px;
-  height: 500px;
-  background-image: url("https://s3.amazonaws.com/running-mario-bros-dev/menus/start_menu.jpg");
-  background-size: contain;
-  border: solid 1px black;
-  z-index: 5;
-}
 
 h1 {
   position: relative;
