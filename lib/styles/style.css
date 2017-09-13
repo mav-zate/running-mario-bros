@@ -189,3 +189,23 @@ button {
   height: 15px;
   background: pink;
 }
+
+#high-score-menu {
+  background: #d64e00;
+  width: 225px;
+  height: 300px;
+  z-index: 10;
+  position: relative;
+  top: 58px;
+  left: 552px;
+  color: white;
+  /*padding: 10px;*/
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  border-top: 1px solid white;
+  border-left: 1px solid white;
+}
+
+#high-score-menu > div {
+  padding: 10px;
+}

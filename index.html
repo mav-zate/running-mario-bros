@@ -62,6 +62,9 @@ Essentials:
 2. Add death screen - DONE
 3. Add instructions modal - DONE
 4. add highscore database
+   - write functionality - DONE
+   - render scores on main menu - DONE
+   - render only top 5 scores
 5. add floating blocks
 6. add in-game toggle music button
 
@@ -78,6 +81,7 @@ Bonus:
     <script type="text/javascript" src="./lib/scripts/instructions.js"></script>
     <script type="text/javascript" src="./lib/scripts/bundle.js"></script>
     <title>Running Mario Bros</title>
+    <link rel="icon" type="image/png" href="./images/mav_logo.png">
   </head>
   <body>
     <header>
@@ -133,8 +137,35 @@ Bonus:
         messagingSenderId: "752893416417"
       };
       firebase.initializeApp(config);
-
       var database = firebase.database();
+
+      // render highscores
+      let highscoreMenu = document.createElement('div');
+      highscoreMenu.setAttribute('id', 'high-score-menu');
+      let highscoreTitleDiv = document.createElement('div');
+      let highscoreTitle = document.createElement('p');
+      highscoreTitle.textContent = 'HIGH SCORES:';
+      highscoreTitleDiv.appendChild(highscoreTitle);
+      highscoreMenu.appendChild(highscoreTitleDiv);
+      let gameSpace = document.getElementById('game-space');
+      gameSpace.appendChild(highscoreMenu);
+
+
+      database.ref('users/').once('value').then(function(scoresSnapshot) {
+        scoresSnapshot.forEach(function(snapshot) {
+          let obj = snapshot.val();
+          let highscoreDiv = document.createElement('div');
+          highscoreMenu.appendChild(highscoreDiv);
+          let username = document.createElement('p');
+          username.textContent = obj.username;
+          highscoreDiv.appendChild(username);
+          let highscore = document.createElement('p');
+          highscore.textContent = obj.highscore;
+          highscoreDiv.appendChild(highscore);
+        });
+      });
+
+      // write score to database
       let writeInt = window.setInterval(() => {
         let playerNameTag = document.getElementById('player-name');
         let playerScoreTag = document.getElementById('player-score');
