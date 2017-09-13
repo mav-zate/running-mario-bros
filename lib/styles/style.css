@@ -10,6 +10,12 @@ h1, h2, h3, p {
   padding: 0;
 }
 
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
 a {
   text-decoration: none;
   color: #e81d1b;
@@ -57,9 +63,15 @@ header {
 
 canvas {
   position: absolute;
+  top: 0;
+  left 0;
+  font-size: 20px;
+}
+
+#game-space {
+  position: absolute;
   top: 100px;
   left: 0;
-  font-size: 20px;
   margin: 0 20% 0 18.5%;
 }
 
@@ -81,13 +93,11 @@ canvas {
 }
 
 #game-screen {
-  /*border: solid 1px black;*/
   background: #6386fb;
 }
 
 #end-screen {
   background: black;
-  /*border: solid 1px black;*/
 }
 
 
@@ -103,6 +113,8 @@ h1 {
 button {
   z-index: 5;
   margin: 10px 0;
+  background: #d64e00;
+  color: white;
 }
 
 .button-section {
@@ -119,22 +131,41 @@ button {
 }
 
 
+
+
 /* INSTRUCTIONS MODAL */
 
 #instructions-modal {
-  position: absolute;
-  top: 250px;
-  left: 250px ;
-  height: 500px;
-  width: 500px;
-  background: pink;
+  position: relative;
+  top: 68px;
+  left: 151px;
+  height: 170px;
+  width: 365px;
+  background: #d64e00;
   z-index: 10;
 }
 
 #instructions-close {
-
+  z-index: 11;
+  background: #d64e00;
+  border: none;
+  color: white;
+  font-size: 20px;
+  padding: none !important;
+  margin: none !important;
 }
 
-#instructions-text {
+#instructions-close:hover {
+  cursor: pointer;
+}
 
+#close-button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.instructions-text {
+  z-index: 11;
+  color: white;
+  padding: 0 5px 20px 5px;
 }
