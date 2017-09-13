@@ -60,7 +60,7 @@ todos
 Essentials:
 1. Add reset - DONE
 2. Add death screen - DONE
-3. Add instructions modal
+3. Add instructions modal - DONE
 4. add highscore database
 5. add floating blocks
 6. add in-game toggle music button
@@ -119,5 +119,36 @@ Bonus:
         <button>CREDITS</button>
       <section>
     </div>
+
+
+    <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyAlcgIhzR1whJNrO1HzCxom3mwZ6y3oSi8",
+        authDomain: "running-mario-bros.firebaseapp.com",
+        databaseURL: "https://running-mario-bros.firebaseio.com",
+        projectId: "running-mario-bros",
+        storageBucket: "running-mario-bros.appspot.com",
+        messagingSenderId: "752893416417"
+      };
+      firebase.initializeApp(config);
+
+      var database = firebase.database();
+      let writeInt = window.setInterval(() => {
+        let playerNameTag = document.getElementById('player-name');
+        let playerScoreTag = document.getElementById('player-score');
+        if (playerNameTag && playerScoreTag) {
+          let username = playerNameTag.textContent;
+          let highscore = parseInt(playerScoreTag.textContent);
+          database.ref('users/' + username).set({
+            username: username,
+            highscore: highscore,
+          });
+          console.log('Score written to database');
+          window.clearInterval(writeInt);
+        }
+      }, 100);
+    </script>
   </body>
 </html>

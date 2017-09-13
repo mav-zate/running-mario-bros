@@ -146,7 +146,7 @@ button {
 }
 
 #instructions-close {
-  z-index: 11;
+  z-index: 10;
   background: #d64e00;
   border: none;
   color: white;
@@ -165,7 +165,27 @@ button {
 }
 
 .instructions-text {
-  z-index: 11;
+  z-index: 10;
   color: white;
   padding: 0 5px 20px 5px;
+}
+
+#player-name-input {
+  z-index: 10;
+  position: relative;
+  top: 380px;
+  left: 510px;
+  width: 110px;
+  height: 15px;
+  background: pink;
+}
+
+#player-name-submit {
+  z-index: 10;
+  position: relative;
+  top: 420px;
+  left: 220px;
+  width: 110px;
+  height: 15px;
+  background: pink;
 }
