@@ -151,7 +151,7 @@ Bonus:
       gameSpace.appendChild(highscoreMenu);
 
 
-      database.ref('users/').once('value').then(function(scoresSnapshot) {
+      database.ref('users/').limitToFirst(5).once('value').then(function(scoresSnapshot) {
         scoresSnapshot.forEach(function(snapshot) {
           let obj = snapshot.val();
           let highscoreDiv = document.createElement('div');
@@ -164,6 +164,14 @@ Bonus:
           highscoreDiv.appendChild(highscore);
         });
       });
+
+      // testing out database rendering
+      // let testdata = database.ref('users/').orderbyValue().on('value', function(data) {
+      //   data.forEach(function(data) {
+      //     console.log(`${data.key}: ${data.val()}`);
+      //   });
+      // });
+
 
       // write score to database
       let writeInt = window.setInterval(() => {
