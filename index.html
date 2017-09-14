@@ -21,61 +21,6 @@ donkey kong arcade theme
 https://www.youtube.com/watch?v=Pp2aMs38ERY
  -->
 
-
-<!--
-Day 1:
-1. Make canvas - DONE
-2. make ground - DONE
-3. draw mario sprite - DONE
-4. make mario move with left and right keys - DONE
-5. make mario jump - DONE
-6. make mario alive - DONE
-
-Day 2:
-1. Add Mario jump sprites - DONE
-2. Figure out gravity - DONE
-3. Add bottom collision detection - DONE
-4. Add goomba - DONE
-
-Day 3:
-1. Make goomba generator - DONE
-2. Add Mario front collision - DONE
-3. Remove goombas from goomba generator - DONE
-4. Add bounce off goomba - DONE
-5. Add goomba kill - DONE
-6. Add super mario bros theme song - DONE
-7. Add mario death
-8. Add coins
-
-Day 4:
-
-1. Add mario death animation - DONE
-2. Freeze game upon death - DONE
-3. Add start menu - DONE
-4. Add high score - DONE
-5. Add death screen
-
-todos
-
-Essentials:
-1. Add reset - DONE
-2. Add death screen - DONE
-3. Add instructions modal - DONE
-4. add highscore database
-   - write functionality - DONE
-   - render scores on main menu - DONE
-   - render only top 5 scores
-   - add name validations
-5. add floating blocks
-6. add in-game toggle music button
-
-Bonus:
-
-1. add coins
-2. add powerups
-3. add enemy variety
-
--->
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="./lib/styles/style.css"/>
@@ -144,34 +89,34 @@ Bonus:
       highscoreMenu.setAttribute('id', 'high-score-menu');
       let highscoreTitleDiv = document.createElement('div');
       let highscoreTitle = document.createElement('p');
+      let highscoresDiv = document.createElement('div');
+      highscoresDiv.setAttribute('id', 'high-scores');
       highscoreTitle.textContent = 'HIGH SCORES:';
       highscoreTitleDiv.appendChild(highscoreTitle);
       highscoreMenu.appendChild(highscoreTitleDiv);
+      highscoreMenu.appendChild(highscoresDiv);
       let gameSpace = document.getElementById('game-space');
       gameSpace.appendChild(highscoreMenu);
 
 
-      database.ref('users/').limitToFirst(5).once('value').then(function(scoresSnapshot) {
-        scoresSnapshot.forEach(function(snapshot) {
-          let obj = snapshot.val();
-          let highscoreDiv = document.createElement('div');
-          highscoreMenu.appendChild(highscoreDiv);
+
+      database.ref('scores/').limitToLast(5)
+        .orderByValue().once('value').then(function(snapshot) {
+        snapshot.forEach((snap) => console.log(snap.val()));
+
+        snapshot.forEach(function(snap) {
+          let name = snap.key;
+          let score = snap.val();
+          let highscoreEntry = document.createElement('div');
+          highscoresDiv.insertBefore(highscoreEntry, highscoresDiv.firstChild);
           let username = document.createElement('p');
-          username.textContent = obj.username;
-          highscoreDiv.appendChild(username);
+          username.textContent = name;
+          highscoreEntry.appendChild(username);
           let highscore = document.createElement('p');
-          highscore.textContent = obj.highscore;
-          highscoreDiv.appendChild(highscore);
+          highscore.textContent = score;
+          highscoreEntry.appendChild(highscore);
         });
       });
-
-      // testing out database rendering
-      // let testdata = database.ref('users/').orderbyValue().on('value', function(data) {
-      //   data.forEach(function(data) {
-      //     console.log(`${data.key}: ${data.val()}`);
-      //   });
-      // });
-
 
       // write score to database
       let writeInt = window.setInterval(() => {
@@ -179,10 +124,11 @@ Bonus:
         let playerScoreTag = document.getElementById('player-score');
         if (playerNameTag && playerScoreTag) {
           let username = playerNameTag.textContent;
-          let highscore = parseInt(playerScoreTag.textContent);
-          database.ref('users/' + username).set({
-            username: username,
-            highscore: highscore,
+          let updateKey = 'scores/' + username;
+
+          let score = parseInt(playerScoreTag.textContent);
+          database.ref().update({
+            [updateKey]: score,
           });
           console.log('Score written to database');
           window.clearInterval(writeInt);

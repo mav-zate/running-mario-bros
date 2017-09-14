@@ -196,16 +196,19 @@ button {
   height: 300px;
   z-index: 10;
   position: relative;
-  top: 58px;
+  top: 54px;
   left: 552px;
   color: white;
-  /*padding: 10px;*/
-  border-right: 1px solid black;
-  border-bottom: 1px solid black;
-  border-top: 1px solid white;
-  border-left: 1px solid white;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+  border-top: 2px solid white;
+  border-left: 2px solid white;
 }
 
 #high-score-menu > div {
   padding: 10px;
+}
+
+#high-scores > div {
+  padding: 0 0 20px 0;
 }
