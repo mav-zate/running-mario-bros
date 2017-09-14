@@ -85,7 +85,6 @@ canvas {
   background-image: url("https://s3.amazonaws.com/running-mario-bros-dev/menus/start_menu.jpg");
   background-size: contain;
   box-shadow: 0 0 20px black;
-  z-index: 5;
 }
 
 * {
@@ -93,11 +92,15 @@ canvas {
 }
 
 #game-screen {
-  background: #6386fb;
+  /*background: #6386fb;*/
 }
 
 #end-screen {
   background: black;
+}
+
+#game-background {
+
 }
 
 

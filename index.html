@@ -19,6 +19,8 @@ mario jump sound
 http://themushroomkingdom.net/media/smb/wav
 donkey kong arcade theme
 https://www.youtube.com/watch?v=Pp2aMs38ERY
+mario background
+https://www.spriters-resource.com/fullview/20592/
  -->
 
 <html>
@@ -56,11 +58,12 @@ https://www.youtube.com/watch?v=Pp2aMs38ERY
 
     <div id="game-space">
       <canvas id="end-screen" width=800 height=500 style="z-index: 1;"></canvas>
-      <canvas id="game-screen" width=800 height=500 style="z-index: 3;"></canvas>
-      <canvas id="mario" width=800 height=500 style="z-index: 4;"></canvas>
+      <canvas id="game-background" width=800 height=500 style="z-index: 3;"></canvas>
+      <canvas id="game-screen" width=800 height=500 style="z-index: 4;"></canvas>
+      <canvas id="mario" width=800 height=500 style="z-index: 5;"></canvas>
     </div>
 
-    <div id="start-screen">
+    <div id="start-screen" style="z-index: 6;">
       <h1>RUNNING MARIO BROS.</h1>
       <section class="button-section">
         <button id="play-button">PLAY</button>
@@ -102,8 +105,6 @@ https://www.youtube.com/watch?v=Pp2aMs38ERY
 
       database.ref('scores/').limitToLast(5)
         .orderByValue().once('value').then(function(snapshot) {
-        snapshot.forEach((snap) => console.log(snap.val()));
-
         snapshot.forEach(function(snap) {
           let name = snap.key;
           let score = snap.val();
@@ -130,7 +131,6 @@ https://www.youtube.com/watch?v=Pp2aMs38ERY
           database.ref().update({
             [updateKey]: score,
           });
-          console.log('Score written to database');
           window.clearInterval(writeInt);
         }
       }, 100);
