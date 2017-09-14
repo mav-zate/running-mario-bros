@@ -177,7 +177,7 @@ button {
   left: 510px;
   width: 110px;
   height: 15px;
-  background: pink;
+  background: white;
 }
 
 #player-name-submit {
@@ -187,7 +187,7 @@ button {
   left: 220px;
   width: 110px;
   height: 15px;
-  background: pink;
+  background: white;
 }
 
 #high-score-menu {
@@ -211,4 +211,8 @@ button {
 
 #high-scores > div {
   padding: 0 0 20px 0;
+}
+
+input {
+  font-family: 'mario';
 }
