@@ -139,7 +139,7 @@ button {
 /* INSTRUCTIONS MODAL */
 
 #instructions-modal {
-  position: relative;
+  position: absolute;
   top: 68px;
   left: 151px;
   height: 170px;
