@@ -3,8 +3,7 @@ A browser infinite runner game inspired by [Super Mario Bros.][super-mario] writ
 
 ## Index
 1. [Current Features](#current-features)
-2. [Future Features](#future-features)
-3. [Credits](#credits)
+2. [Credits](#credits)
 
 
 ## Current Features
