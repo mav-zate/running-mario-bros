@@ -47,11 +47,33 @@ This type of collision occurs on the right side of the Mario image. If any of th
 
 This type of collision occurs on the bottom side of the Mario image. If an enemy's top side falls within the blue field, the Mario "bounces" off it and kills it. However, if a brick's top side falls within the blue field, Mario's jump is broken and he continues to "run."
 ## Credits
+Mario sprites from [The Spriters Resource][mario_sprite]
 
+Super Mario Bros. World 1-1 background from [The Spriters Resource][marioBackground_image]
 
+Goomba sprites from [Super Luigi Bros][goomba_sprite] 
+
+Explosion sprites from [Luxinia][explosion_sprite]
+
+Explosion sound from [SoundBible][explosion_sound]
+
+Super Mario Bros. Overworld Theme audio from this [youtube video][marioTheme_sound] 
+
+Mario's jump sound from [The Mushroom Kingdom][marioJump_sound]
+
+Donkey Kong Arcade Theme audio from this [youtube_video][dkTheme_sound]
 
 
 [super-mario]: https://en.wikipedia.org/wiki/Super_Mario_Bros.
 [image_sides]: https://github.com/mav-zate/running-mario-bros/blob/master/images/image_sides.png
 [mario_front_collision]: https://github.com/mav-zate/running-mario-bros/blob/master/images/mario_front_collision.png
 [mario_bottom_collision]: https://github.com/mav-zate/running-mario-bros/blob/master/images/mario_bottom_collision.png
+[mario_sprite]: https://www.spriters-resource.com/nes/supermariobros/sheet/50365/
+[goomba_sprite]: http://www.superluigibros.com/super-mario-bros-sprites
+[explosion_sprite]: http://www.luxinia.de/index.php/Tutorials/Tutorial19
+[explosion_sound]: http://soundbible.com/538-Blast.html
+[marioTheme_sound]: https://www.youtube.com/watch?v=iy3qq7zc4EY
+[marioJump_sound]: http://themushroomkingdom.net/media/smb/wav
+[dkTheme_sound]: https://www.youtube.com/watch?v=Pp2aMs38ERY
+[marioBackground_image]: https://www.spriters-resource.com/fullview/20592/
+
