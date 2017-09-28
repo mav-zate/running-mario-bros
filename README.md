@@ -32,28 +32,26 @@ left at a constant pace. However, they move leftwards much faster than the backg
 illusion that the background layer is further away from the user than the non-Mario layer is.
 ### Collision Detection
 
-Collision detection allows the game objects to detect each others' presence. Specifically, each the Mario object renders its image, it
-checks all the other game objects' positions and dimensions against its own to detect a collision. The Mario object checks for two
-kinds of collisions:
-1. Front
-2. Below 
+Collision detection allows the game objects to detect each others' presence. Specifically, each time the Mario object renders its image, it checks the position of all the other game objects' image sides (see image below). 
+
+![The sides of an image][image_sides]
+
+The Mario object checks for two kinds of collisions, front and back.
 #### Front
-This type of collision occurs on the right side of the Mario image. This is done by checking to see if any of the game object's left
-sides are inside a right-hand slice of the Mario image. See image below.
-image placeholder
-When this collision occurs, Mario dies.
+![Mario's collision area][mario_front_collision]
+
+This type of collision occurs on the right side of the Mario image. If any of the other game objects' left sides fall within the blue field, it causes Mario to die and the game to end.
+
 #### Bottom
-This type of collision occurs on the bottom side of the Mario image. This is done by checking to see if any of the game object's top
-sides are inside a bottom slice of the Mario image. See image below.
+![Mario's bottom collision area][mario_bottom_collision] 
 
-image placeholder
-
-When this collision occurs, Mario bounces off and kills an enemy if the object is an enemy, or lands and continues running if that object
-is a brick.
-
+This type of collision occurs on the bottom side of the Mario image. If an enemy's top side falls within the blue field, the Mario "bounces" off it and kills it. However, if a brick's top side falls within the blue field, Mario's jump is broken and he continues to "run."
 ## Credits
 
 
 
 
 [super-mario]: https://en.wikipedia.org/wiki/Super_Mario_Bros.
+[image_sides]: https://github.com/mav-zate/running-mario-bros/blob/master/images/image_sides.png
+[mario_front_collision]: https://github.com/mav-zate/running-mario-bros/blob/master/images/mario_front_collision.png
+[mario_bottom_collision]: https://github.com/mav-zate/running-mario-bros/blob/master/images/mario_bottom_collision.png
